@@ -12,17 +12,13 @@ class Pig_latin
   	word[i,word.size] + word[0, i] + "ay" #rearranges string at position of first vowl
 	end
 
-	def initialize(string)
+	def convert_sentence(string)
 		return nil if string.nil?
 		return "" if string.empty?
-		converted_sent = ""
 
-		string.split.each do |word|
-			converted_sent << convert(word) + " "
+		converted_words = string.split.map do |word|
+			convert(word)
 		end
-		puts converted_sent
+		converted_words.join(" ")
 	end
 end
-
-puts "Enter a sentence to convert to pig latin"
-Pig_latin.new(gets.chomp)
